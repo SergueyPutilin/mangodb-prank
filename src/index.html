@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../static/assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/assets/favicon/favicon-16x16.png">  
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MangoDB</title>
+</head>
+<body class="o-container">
+    <div class="m-header">
+            <pre class="a-header-title a-ascii-art">
+         _____                    _____                    _____                    _____                   _______                   _____                    _____          
+         /\    \                  /\    \                  /\    \                  /\    \                 /::\    \                 /\    \                  /\    \         
+        /::\____\                /::\    \                /::\____\                /::\    \               /::::\    \               /::\    \                /::\    \        
+       /::::|   |               /::::\    \              /::::|   |               /::::\    \             /::::::\    \             /::::\    \              /::::\    \       
+      /:::::|   |              /::::::\    \            /:::::|   |              /::::::\    \           /::::::::\    \           /::::::\    \            /::::::\    \      
+     /::::::|   |             /:::/\:::\    \          /::::::|   |             /:::/\:::\    \         /:::/~~\:::\    \         /:::/\:::\    \          /:::/\:::\    \     
+    /:::/|::|   |            /:::/__\:::\    \        /:::/|::|   |            /:::/  \:::\    \       /:::/    \:::\    \       /:::/  \:::\    \        /:::/__\:::\    \    
+   /:::/ |::|   |           /::::\   \:::\    \      /:::/ |::|   |           /:::/    \:::\    \     /:::/    / \:::\    \     /:::/    \:::\    \      /::::\   \:::\    \   
+  /:::/  |::|___|______    /::::::\   \:::\    \    /:::/  |::|   | _____    /:::/    / \:::\    \   /:::/____/   \:::\____\   /:::/    / \:::\    \    /::::::\   \:::\    \  
+ /:::/   |::::::::\    \  /:::/\:::\   \:::\    \  /:::/   |::|   |/\    \  /:::/    /   \:::\ ___\ |:::|    |     |:::|    | /:::/    /   \:::\ ___\  /:::/\:::\   \:::\ ___\ 
+/:::/    |:::::::::\____\/:::/  \:::\   \:::\____\/:: /    |::|   /::\____\/:::/____/  ___\:::|    ||:::|____|     |:::|    |/:::/____/     \:::|    |/:::/__\:::\   \:::|    |
+\::/    / ~~~~~/:::/    /\::/    \:::\  /:::/    /\::/    /|::|  /:::/    /\:::\    \ /\  /:::|____| \:::\    \   /:::/    / \:::\    \     /:::|____|\:::\   \:::\  /:::|____|
+ \/____/      /:::/    /  \/____/ \:::\/:::/    /  \/____/ |::| /:::/    /  \:::\    /::\ \::/    /   \:::\    \ /:::/    /   \:::\    \   /:::/    /  \:::\   \:::\/:::/    / 
+             /:::/    /            \::::::/    /           |::|/:::/    /    \:::\   \:::\ \/____/     \:::\    /:::/    /     \:::\    \ /:::/    /    \:::\   \::::::/    /  
+            /:::/    /              \::::/    /            |::::::/    /      \:::\   \:::\____\        \:::\__/:::/    /       \:::\    /:::/    /      \:::\   \::::/    /   
+           /:::/    /               /:::/    /             |:::::/    /        \:::\  /:::/    /         \::::::::/    /         \:::\  /:::/    /        \:::\  /:::/    /    
+          /:::/    /               /:::/    /              |::::/    /          \:::\/:::/    /           \::::::/    /           \:::\/:::/    /          \:::\/:::/    /     
+         /:::/    /               /:::/    /               /:::/    /            \::::::/    /             \::::/    /             \::::::/    /            \::::::/    /      
+        /:::/    /               /:::/    /               /:::/    /              \::::/    /               \::/____/               \::::/    /              \::::/    /       
+        \::/    /                \::/    /                \::/    /                \::/____/                 ~~                      \::/____/                \::/____/        
+         \/____/                  \/____/                  \/____/                                                                    ~~                       ~~              
+                                                                                                                                                                               
+
+        </pre>
+        <pre class="a-header-title a-ascii-art">
+                                                .-'''-.                            
+                                                '   _    \ _______                 
+__  __   ___                _..._            /   /' '.   \\  ___ ''.   /|          
+|  |/  '.'   '.            .'     '.   .--./).   |     \  ' ' |--.\  \  ||         
+|   .-.  .-.   '          .   .-.   . /.''\\ |   '      |  '| |    \  ' ||         
+|  |  |  |  |  |    __    |  '   '  || |  | |\    \     / / | |     |  '||  __     
+|  |  |  |  |  | .:--.'.  |  |   |  | \'-' /  '.   ' ..' /  | |     |  |||/'__ '.  
+|  |  |  |  |  |/ |   \ | |  |   |  | /("''      '-...-''   | |     ' .'|:/'  '. ' 
+|  |  |  |  |  |'" __ | | |  |   |  | \ '---.               | |___.' /' ||     | | 
+|__|  |__|  |__| .'.''| | |  |   |  |  /'""'.\             /_______.'/  ||\    / ' 
+                / /   | |_|  |   |  | ||     ||            \_______|/   |/\'..' /  
+                \ \._,\ '/|  |   |  | \'. __//                          '  ''-''   
+                '--'  '" '--'   '--'  ''---'                                       
+
+        </pre>
+        <pre class="a-header-title a-ascii-art">
+__       __   ______   __    __   ______    ______   _______   _______   
+|  \     /  \ /      \ |  \  |  \ /      \  /      \ |       \ |       \  
+| $$\   /  $$|  $$$$$$\| $$\ | $$|  $$$$$$\|  $$$$$$\| $$$$$$$\| $$$$$$$\ 
+| $$$\ /  $$$| $$__| $$| $$$\| $$| $$ __\$$| $$  | $$| $$  | $$| $$__/ $$ 
+| $$$$\  $$$$| $$    $$| $$$$\ $$| $$|    \| $$  | $$| $$  | $$| $$    $$ 
+| $$\$$ $$ $$| $$$$$$$$| $$\$$ $$| $$ \$$$$| $$  | $$| $$  | $$| $$$$$$$\ 
+| $$ \$$$| $$| $$  | $$| $$ \$$$$| $$__| $$| $$__/ $$| $$__/ $$| $$__/ $$ 
+| $$  \$ | $$| $$  | $$| $$  \$$$ \$$    $$ \$$    $$| $$    $$| $$    $$ 
+ \$$      \$$ \$$   \$$ \$$   \$$  \$$$$$$   \$$$$$$  \$$$$$$$  \$$$$$$$  
+                                                                          
+                                                                          
+        </pre>
+        <pre class="a-header-title a-ascii-art">
+_______  _______  _        _______  _______  ______   ______   
+(       )(  ___  )( (    /|(  ____ \(  ___  )(  __  \ (  ___ \  
+| () () || (   ) ||  \  ( || (    \/| (   ) || (  \  )| (   ) ) 
+| || || || (___) ||   \ | || |      | |   | || |   ) || (__/ /  
+| |(_)| ||  ___  || (\ \) || | ____ | |   | || |   | ||  __ (   
+| |   | || (   ) || | \   || | \_  )| |   | || |   ) || (  \ \  
+| )   ( || )   ( || )  \  || (___) || (___) || (__/  )| )___) ) 
+|/     \||/     \||/    )_)(_______)(_______)(______/ |/ \___/  
+                                                                
+
+        </pre>
+        <pre class="a-header-title a-ascii-art">
+
+__/\\\\____________/\\\\_____/\\\\\\\\\_____/\\\\\_____/\\\_____/\\\\\\\\\\\\_______/\\\\\_______/\\\\\\\\\\\\_____/\\\\\\\\\\\\\___        
+_\/\\\\\\________/\\\\\\___/\\\\\\\\\\\\\__\/\\\\\\___\/\\\___/\\\//////////______/\\\///\\\____\/\\\////////\\\__\/\\\/////////\\\_        
+ _\/\\\//\\\____/\\\//\\\__/\\\/////////\\\_\/\\\/\\\__\/\\\__/\\\_______________/\\\/__\///\\\__\/\\\______\//\\\_\/\\\_______\/\\\_       
+  _\/\\\\///\\\/\\\/_\/\\\_\/\\\_______\/\\\_\/\\\//\\\_\/\\\_\/\\\____/\\\\\\\__/\\\______\//\\\_\/\\\_______\/\\\_\/\\\\\\\\\\\\\\__      
+   _\/\\\__\///\\\/___\/\\\_\/\\\\\\\\\\\\\\\_\/\\\\//\\\\/\\\_\/\\\___\/////\\\_\/\\\_______\/\\\_\/\\\_______\/\\\_\/\\\/////////\\\_     
+    _\/\\\____\///_____\/\\\_\/\\\/////////\\\_\/\\\_\//\\\/\\\_\/\\\_______\/\\\_\//\\\______/\\\__\/\\\_______\/\\\_\/\\\_______\/\\\_    
+     _\/\\\_____________\/\\\_\/\\\_______\/\\\_\/\\\__\//\\\\\\_\/\\\_______\/\\\__\///\\\__/\\\____\/\\\_______/\\\__\/\\\_______\/\\\_   
+      _\/\\\_____________\/\\\_\/\\\_______\/\\\_\/\\\___\//\\\\\_\//\\\\\\\\\\\\/_____\///\\\\\/_____\/\\\\\\\\\\\\/___\/\\\\\\\\\\\\\/__  
+       _\///______________\///__\///________\///__\///_____\/////___\////////////_________\/////_______\////////////_____\/////////////____ 
+        </pre>
+        <pre class="a-header-title a-ascii-art">
+.----------------.  .----------------.  .-----------------. .----------------.  .----------------.  .----------------.  .----------------.  
+| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. | 
+| | ____    ____ | || |      __      | || | ____  _____  | || |    ______    | || |     ____     | || |  ________    | || |   ______     | | 
+| ||_   \  /   _|| || |     /  \     | || ||_   \|_   _| | || |  .' ___  |   | || |   .'    '.   | || | |_   ___ '.  | || |  |_   _ \    | | 
+| |  |   \/   |  | || |    / /\ \    | || |  |   \ | |   | || | / .'   \_|   | || |  /  .--.  \  | || |   | |   '. \ | || |    | |_) |   | | 
+| |  | |\  /| |  | || |   / ____ \   | || |  | |\ \| |   | || | | |    ____  | || |  | |    | |  | || |   | |    | | | || |    |  __'.   | | 
+| | _| |_\/_| |_ | || | _/ /    \ \_ | || | _| |_\   |_  | || | \ '.___]  _| | || |  \  '--'  /  | || |  _| |___.' / | || |   _| |__) |  | | 
+| ||_____||_____|| || ||____|  |____|| || ||_____|\____| | || |  '._____.'   | || |   '.____.'   | || | |________.'  | || |  |_______/   | | 
+| |              | || |              | || |              | || |              | || |              | || |              | || |              | | 
+| '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' | 
+ '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  
+        </pre>
+        <pre class="a-header-title a-ascii-art">
+    _     _      _     _      _     _      _     _      _     _      _     _      _     _    
+   (c).-.(c)    (c).-.(c)    (c).-.(c)    (c).-.(c)    (c).-.(c)    (c).-.(c)    (c).-.(c)   
+    / ._. \      / ._. \      / ._. \      / ._. \      / ._. \      / ._. \      / ._. \    
+  __\( Y )/__  __\( Y )/__  __\( Y )/__  __\( Y )/__  __\( Y )/__  __\( Y )/__  __\( Y )/__  
+ (_.-/'-'\-._)(_.-/'-'\-._)(_.-/'-'\-._)(_.-/'-'\-._)(_.-/'-'\-._)(_.-/'-'\-._)(_.-/'-'\-._) 
+    || M ||      || A ||      || N ||      || G ||      || O ||      || D ||      || B ||    
+  _.' '-' '._  _.' '-' '._  _.' '-' '._  _.' '-' '._  _.' '-' '._  _.' '-' '._  _.' '-' '._  
+ (.-./'-'\.-.)(.-./'-'\.-.)(.-./'-'\.-.)(.-./'-'\.-.)(.-./'-'\.-.)(.-./'-'\.-.)(.-./'-'\.-.) 
+  '-'     '-'  '-'     '-'  '-'     '-'  '-'     '-'  '-'     '-'  '-'     '-'  '-'     '-'  
+        </pre>
+        <pre class="a-header-title a-ascii-art">
+   ▄▄▄▄███▄▄▄▄      ▄████████ ███▄▄▄▄      ▄██████▄   ▄██████▄  ████████▄  ▀█████████▄ 
+ ▄██▀▀▀███▀▀▀██▄   ███    ███ ███▀▀▀██▄   ███    ███ ███    ███ ███   ▀███   ███    ███
+ ███   ███   ███   ███    ███ ███   ███   ███    █▀  ███    ███ ███    ███   ███    ███
+ ███   ███   ███   ███    ███ ███   ███  ▄███        ███    ███ ███    ███  ▄███▄▄▄██▀ 
+ ███   ███   ███ ▀███████████ ███   ███ ▀▀███ ████▄  ███    ███ ███    ███ ▀▀███▀▀▀██▄ 
+ ███   ███   ███   ███    ███ ███   ███   ███    ███ ███    ███ ███    ███   ███    ██▄
+ ███   ███   ███   ███    ███ ███   ███   ███    ███ ███    ███ ███   ▄███   ███    ███
+  ▀█   ███   █▀    ███    █▀   ▀█   █▀    ████████▀   ▀██████▀  ████████▀  ▄█████████▀ 
+                                                                                       
+        </pre>
+        <pre class="a-header-title a-ascii-art">
+   *                )             )  (          
+ (  '     (      ( /(  (       ( /(  )\ )    (  
+ )\))(    )\     )\()) )\ )    )\())(()/(  ( )\ 
+((_)()\((((_)(  ((_)\ (()/(   ((_)\  /(_)) )((_)
+(_()((_))\ _ )\  _((_) /(_))_   ((_)(_))_ ((_)_ 
+|  \/  |(_)_\(_)| \| |(_)) __| / _ \ |   \ | _ )
+| |\/| | / _ \  | .' |  | (_ || (_) || |) || _ \
+|_|  |_|/_/ \_\ |_|\_|   \___| \___/ |___/ |___/
+                                                
+        </pre>
+        <pre class="a-header-title a-ascii-art">
+,---.    ,---.   ____    ,---.   .--.  .-_'''-.       ,-----.     ______      _______     
+|    \  /    | .'  __ '. |    \  |  | '_( )_   \    .'  .-,  '.  |    _ '''. \  ____  \   
+|  ,  \/  ,  |/   '  \  \|  ,  \ |  ||(_ o _)|  '  / ,-.|  \ _ \ | _ | ) _  \| |    \ |   
+|  |\_   /|  ||___|  /  ||  |\_ \|  |. (_,_)/___| ;  \  '_ /  | :|( ''_'  ) || |____/ /   
+|  _( )_/ |  |   _.-'   ||  _( )_\  ||  |  .-----.|  _',/ \ _/  || . (_) '. ||   _ _ '.   
+| (_ o _) |  |.'   _    || (_ o _)  |'  \  '-   .': (  '\_/ \   ;|(_    ._) '|  ( ' )  \  
+|  (_,_)  |  ||  _( )_  ||  (_,_)\  | \  '-''   |  \ '"/  \  ) / |  (_.\.' / | (_{;}_) |  
+|  |      |  |\ (_ o _) /|  |    |  |  \        /   '. \_/''".'  |       .'  |  (_,_)  /  
+'--'      '--' '.(_,_).' '--'    '--'   ''-...-'      '-----'    '-----''    /_______.'   
+                                                                                          
+        </pre>
+
+        <span>So fruity!</span>
+
+        <canvas class="webgl"></canvas>
+    </div>
+
+    <div class="center flex-center a-divider"><span> -=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=- </span></div>
+
+    <section class="m-section center">
+        <h2 class="a-title">The new Golden standard</h2>
+        <p>
+            MangoDB is the new golden standard for your database solutions in NodeJS. Outperforming all of the competition
+            such as Mongo(L)DB, Postgresql, regular PHP databases and many more while being just as reliable. MangoDB is already
+            widely used by the industry and provides a stable and fruity developing platform for all kinds of applications like:
+        </p>
+        <ul>
+            <li>Farming spreadsheet applications to calculate farm layouts</li>
+            <li>Content management systems => See <a class="a-link" href="https://www.youtube.com/watch?v=fyH4NGSxhXI" target="_blank">FCM</a>, Fruity Content Manager</li>
+            <li>Many more!</li>
+        </ul>
+        <p>
+            With a lot of community support we can safely say that MangoDB will be maintained for a very long time with a 
+            lot of new features already on the roadmap.
+        </p>
+    </section>
+
+    <section class="m-section center">
+        <h2 class="a-title">Fruity syntax</h2>
+
+        <p>
+            MangoDB has a F R U I T Y~~~ ♩♪ syntax inspired by the world of agriculture. We decided to change most of the 
+            Database terms to something related to agriculture. E.g. Databases are Farms, tables are Fields and columns are Crops. 
+            To work your way around the code, we also changed a lot of method terms:
+        </p>
+        <ul>
+            <li>PLANT: Add items</li>
+            <li>PICK: Get items</li>
+            <li>CURE: Patch items</li>
+            <li>TOTHECOMPOSTBIN: Delete items</li>
+            <li>Many more!</li>
+        </ul>
+        <p>
+            We hope that developers (or as we call them: Farmers) will be able to smoothly transition from other Database 
+            frameworks because of our F R U I T Y~~~ ♩♪ syntax and hope they'll get their 99 Farming skilling cape in no time!
+        </p>
+
+    </section>
+
+    <section class="m-section center">
+        <h2 class="a-title">Features</h2>
+
+        <p>
+            MangoDB has a lot of great features that will make think to yourself "why didn't I use MangoDB before!". 
+            Here is a list of some of our amazing features:
+        </p>
+        <ul>
+            <li>Grows new data naturally (idk it just does)</li>
+            <li>Photosynthesis, the more data, the more it produces new available space for new data.</li>
+            <li>NoSQL: You have to do it manually, just like on the farm!</li>
+            <li>Composter: Make queries grow faster</li>
+            <li>Easy DB dumps: You can dig it out and plant the db somewhere else without any data loss.</li>
+        </ul>
+    </section>
+
+    <div class="center flex-center a-divider"><span> -=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=- </span></div>
+
+    <section class="m-section center">
+        <pre class="a-ascii-art flex-center">
+   _____                              _     _   _                            _           _   
+   / ____|                            | |   | | | |                          (_)         | |  
+  | (___  _   _ _ __  _ __   ___  _ __| |_  | |_| |__   ___   _ __  _ __ ___  _  ___  ___| |_ 
+   \___ \| | | | '_ \| '_ \ / _ \| '__| __| | __| '_ \ / _ \ | '_ \| '__/ _ \| |/ _ \/ __| __|
+   ____) | |_| | |_) | |_) | (_) | |  | |_  | |_| | | |  __/ | |_) | | | (_) | |  __/ (__| |_ 
+  |_____/ \__,_| .__/| .__/ \___/|_|   \__|  \__|_| |_|\___| | .__/|_|  \___/| |\___|\___|\__|
+               | |   | |                                     | |            _/ |              
+               |_|   |_|                                     |_|           |__/               
+
+        </pre>
+
+       <div class="flex-between full">
+           <div>
+               <p class="margin-bottom">
+                   Support the project by buying our sick ass merch and show everyone around you what kind of Full stack(overflow) developer you are!
+               </p>
+               <pre>
+                |￣￣￣￣￣￣￣￣|
+                |   Please    |
+                |   SUPPORT   |
+                |   US        |
+                | ＿＿＿＿＿＿＿|
+                       ||
+                (\__/) || 
+                (•ㅅ•)  |
+                / 　 づ
+               </pre>
+               <p>
+                   By supporting the project, you also support developers that are still using outdated NodeJS Database frameworks for 
+                   their projects. We felt so sorry for them that we will donate 10% of all of our donations to the ~Transition To MangoDB Foundation~ so that
+                   these developers will start using MangoDB and not hate their life for once.
+               </p>
+           </div>
+
+        <div class="m-merch">
+            <img class="a-product-image" src="../static/assets/mango_image.png"/>
+            
+            <a class="a-buy-button" target="_blank" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                <div>
+                    Buy one!
+                </div>
+            </a>
+        </div>
+       </div>
+    </section>
+
+    <div class="center flex-center a-divider"><span> -=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=-_-=- </span></div>
+
+</body>
+
+<footer class="m-footer flex-column-center">
+    <h2 class="a-title">Sponsored by</h2>
+    <pre class="a-ascii-art flex-center">
+                                                                                                                                                
+           @@@@@@@@@@@@@.  @@@@                                                                                                                 
+        @@@@            %@@@@@/            ______     ______   __  __     _____     __     ______                                               
+      @@@             @@@@@&              /\  ___\   /\__  _\ /\ \/\ \   /\  __-.  /\ \   /\  __ \                                              
+     @@@            @@@@@   @@            \ \___  \  \/_/\ \/ \ \ \_\ \  \ \ \/\ \ \ \ \  \ \ \/\ \                                             
+     @@          %@@@@      (@@            \/\_____\    \ \_\  \ \_____\  \ \____-  \ \_\  \ \_____\                                            
+    ,@@        @@@@          @@             \/_____/     \/_/   \/_____/   \/____/   \/_/   \/_____/                                            
+     @@(     @@@            @@@            __  __     __  __     ______   ______     ______     _____     ______     __     __   __   ______    
+      @@@ &@@              @@@            /\ \_\ \   /\ \_\ \   /\  == \ /\  ___\   /\  == \   /\  __-.  /\  == \   /\ \   /\ \ / /  /\  ___\   
+        @@              .@@@              \ \  __ \  \ \____ \  \ \  _-/ \ \  __\   \ \  __/   \ \ \/\ \ \ \  __/   \ \ \  \ \ \'/   \ \  __\   
+      @/  @@@@@@@&@@@@@@@                  \ \_\ \_\  \/\_____\  \ \_\    \ \_____\  \ \_\ \_\  \ \____-  \ \_\ \_\  \ \_\  \ \__|    \ \_____\ 
+   &%                                       \/_/\/_/   \/_____/   \/_/     \/_____/   \/_/ /_/   \/____/   \/_/ /_/   \/_/   \/_/      \/_____/ 
+ @                                                                                                                                              
+
+    </pre>
+
+    <span class="flex-center">
+        SHD Radio 2021
+    </span>
+    <marquee class="margin-top">
+        Yeah, I'm gonna take my horse
+        To the old town road
+        I'm gonna ride 'til I can't no more
+        I'm gonna take my horse to the old town road
+        I'm gonna ride (Kio, Kio) 'til I can't no more
+        I got the horses in the back
+        Horse tack is attached
+        Hat is matte black
+        Got the boots that's black to match
+        Riding on a horse, ha
+        You can whip your Porsche
+        I been in the valley
+        You ain't been up off the porch, now
+        Can't nobody tell me nothing
+        You can't tell me nothing
+        Can't nobody tell me nothing
+        You can't tell me nothing
+        Riding on a tractor
+        Lean all in my bladder
+        Cheated on my baby
+        You can go and ask her
+        My life is a movie
+        Bull riding and boobies
+        Cowboy hat from Gucci
+        Wrangler on my booty
+        Can't nobody tell me nothing
+        You can't tell me nothing
+        Can't nobody tell me nothing
+        You can't tell me nothing
+        Yeah, I'm gonna take my horse
+        To the old town road
+        I'm gonna ride 'til I can't no more
+        I'm gonna take my horse to the old town road
+        I'm gonna ride 'til I can't no more
+        I got the
+    </marquee>
+</footer>
+</html>

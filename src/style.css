@@ -1,0 +1,126 @@
+body {
+    background-color: #2A2B33;
+    color: white;
+    font-family: 'Courier New', Courier, monospace
+}
+
+.o-container {
+    display: block;
+
+    width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.full {
+    width: 100%;
+}
+
+.margin-top {
+    margin-top: 1rem;
+}
+
+.margin-bottom {
+    margin-bottom: 1rem;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+}
+
+.flex-column-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.m-header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.a-header-title {
+    display: none;
+}
+
+.a-ascii-art {
+    font-family: monospace;
+    white-space: pre;
+    margin: 1em 0px;
+    font-size: 1rem;
+}
+
+.a-divider {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.m-section {
+    width: 80%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.a-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.m-merch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 1rem 0 1rem;
+    border: 1px white dashed;
+    margin-left: 1rem;
+}
+
+.a-buy-button {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: white;
+    text-align: center;
+    text-decoration: none;
+    color: #2A2B33;
+}
+
+.a-buy-button:visited {
+    color: #2A2B33;
+}
+
+.a-product-image {
+    width: 250px;
+}
+
+.m-footer {
+    width: 100%;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.a-link {
+    color: white;
+}
+
+.a-link:visited {
+    color: white;
+
+}
+
+.visible {
+    display: block;
+}
